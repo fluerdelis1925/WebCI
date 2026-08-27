@@ -1,24 +1,26 @@
 import { test, expect, Page} from '@playwright/test';
 import {TestConfig} from '../test.config'
 import { LoginWebCi } from '../pages/WebCILogin';
-import {AssignAcc} from '../pages/AssignAccount'
-import {ManagerHomepage} from '../pages/ManagerHomepage'
+import {AssignAcc} from '../pages/TaskManagementFV'
 import {unassignedPage} from '../pages/TaskManagementFV/unassignedPage'
 import {RandomDataUtil} from '../utils/RandomDataGenerator';
+import {pendingPage} from '../pages/TaskManagementFV/pendingPage'
 
 
   let config: TestConfig;
   let loginWebCi: LoginWebCi;
   let unassignedpage: unassignedPage;
-  let Managerhomepage: ManagerHomepage;
+  let pendingdpage: pendingPage;
+  let assignAcc: AssignAcc;
 
 test.beforeEach(async ({ page }) => {
   config = new TestConfig(); 
   await page.goto(config.webCIurl);
 
    loginWebCi = new LoginWebCi(page);
-   Managerhomepage = new ManagerHomepage(page);
+   assignAcc = new AssignAcc(page);
    unassignedpage = new unassignedPage(page);
+   pendingdpage = new pendingPage(page);
 
 });
 
@@ -33,9 +35,8 @@ test('Assign Test data', async () => {
 
 
     await loginWebCi.loginAcc(config.email, config.password);
-    await Managerhomepage.clickTaskManagementFV();
-    await unassignedpage.TaskElementFVPage("10000192500ds00102")
+    await assignAcc.TaskManagementFV();
+    await unassignedpage.assignAcc("SLP260811000001")
 
-
-  
+   
     });
