@@ -27,10 +27,8 @@ static getEmail()
 
 }
 
-static getPhoneNumber()
-{
-    return faker.phone.number();
-
+static getPhoneNumber() {
+    return `09${faker.string.numeric(9)}`;
 }
 
  static getUsername(): string {

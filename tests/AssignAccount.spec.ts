@@ -4,13 +4,11 @@ import { LoginWebCi } from '../pages/WebCILogin';
 import {AssignAcc} from '../pages/TaskManagementFV'
 import {unassignedPage} from '../pages/TaskManagementFV/unassignedPage'
 import {RandomDataUtil} from '../utils/RandomDataGenerator';
-import {pendingPage} from '../pages/TaskManagementFV/pendingPage'
 
 
   let config: TestConfig;
   let loginWebCi: LoginWebCi;
   let unassignedpage: unassignedPage;
-  let pendingdpage: pendingPage;
   let assignAcc: AssignAcc;
 
 test.beforeEach(async ({ page }) => {
@@ -20,7 +18,6 @@ test.beforeEach(async ({ page }) => {
    loginWebCi = new LoginWebCi(page);
    assignAcc = new AssignAcc(page);
    unassignedpage = new unassignedPage(page);
-   pendingdpage = new pendingPage(page);
 
 });
 
@@ -36,7 +33,7 @@ test('Assign Test data', async () => {
 
     await loginWebCi.loginAcc(config.email, config.password);
     await assignAcc.TaskManagementFV();
-    await unassignedpage.assignAcc("SLP260811000001")
+    await unassignedpage.assignAcc()
 
    
     });
