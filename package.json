@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test:assignacc": "npx playwright test tests/AssignAccount.spec.ts --headed",
-    "test:tasktracketFV": "npx playwright test tests/tasktrackerFV.spec.ts --headed"
+    "test:assignacc": "npx playwright test tests/AssignAccount.spec.ts",
+    "test:tasktracketFV": "npx playwright test tests/tasktrackerFV.spec.ts"
   },
   "keywords": [],
   "author": "",
