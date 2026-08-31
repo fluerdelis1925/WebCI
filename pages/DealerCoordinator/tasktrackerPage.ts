@@ -329,6 +329,7 @@ for (const field of uploadFields) {
 }
 
 await this.page.getByRole('button', { name: 'Submit' }).click();
+await this.page.waitForTimeout(90000);
 
     }
 }
